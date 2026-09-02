@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   correoInput.addEventListener('blur', () => {
     const rol = determinarRol(correoInput.value);
     if (rol === null) {
-      errorCorreo.textContent = 'Solo se permiten correos @gmail.com (comprador), @duocuc.cl (vendedor) o @profesor.duoc.cl (administrador).';
+      errorCorreo.textContent = 'Solo se permiten correos @gmail.com , @duocuc.cl  o @profesor.duoc.cl .';
       errorCorreo.classList.add('text-danger');
     } else {
       errorCorreo.textContent = '';
