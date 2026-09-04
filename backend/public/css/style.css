@@ -4,6 +4,18 @@
      background-position: center;
 }
 
+ .h1-blogs {
+    text-align: center;
+    color: white;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+ .card {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .bg-main {
     background-image: url('img/fondoaz.jpg');
