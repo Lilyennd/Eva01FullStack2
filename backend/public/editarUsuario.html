@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios | Splendor</title>
-
+    <title>Editar Usuario | Splendor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -41,32 +40,48 @@
   </div>
 </nav>
 
-    <div class="container my-5">
-        <h1 class="text-center mb-4 ; herotitulo" style="color: white; font-size: xx-large;">Lista de Usuarios Registrados</h1>
-        
-        <div class="card shadow border-0 rounded-4 p-4">
-            <div class="table-responsive">
-              <table class="table table-striped align-middle">
-            <thead>
-            <tr>
-            <th scope="col">RUN</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Correo</th>
-            <th scope="col">Rol</th>
-            <th scope="col">Acciones</th> 
-            </tr>
-        </thead>
-        <tbody id="cuerpoTablaUsuarios">
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
+      <div class="card shadow border-0 rounded-4 p-4">
+        <h3 class="text-center mb-4 fw-bold">Editar Usuario</h3>
 
-            </tbody>
-            </table>
-            </div>
-        </div>
+        <div id="mensajeUsuario"></div>
+
+        <form id="formEditarUsuario">
+          <input type="hidden" id="id_usuario">
+
+          <div class="mb-3">
+            <label class="form-label">RUN</label>
+            <input type="text" class="form-control" id="run" maxlength="9" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="correo" required>
+          </div>
+
+          <div class="d-flex gap-2 mt-4">
+            <button type="submit" class="btn btn-warning flex-fill fw-bold">Guardar Cambios</button>
+            <a href="listarUsuarios.html" class="btn btn-outline-secondary flex-fill">Cancelar</a>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="navbar.js"></script>
-    <script src="listarUsuarios.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="editarUsuario.js"></script>
 </body>
 </html>
