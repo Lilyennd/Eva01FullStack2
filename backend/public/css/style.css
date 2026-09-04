@@ -152,7 +152,6 @@
     }
 
 
-
 .decoracion-superior {
   display: flex;
   align-items: center;
@@ -247,8 +246,7 @@
 
 
 
-
-.proceso-seccion {
+.seccion {
   max-width: 700px;
   margin: 60px auto;
   position: relative;
@@ -256,7 +254,7 @@
 }
 
 
-.proceso-item {
+.item {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -266,12 +264,12 @@
 }
 
 
-.proceso-contenido {
+.contenido {
   text-align: right;
   max-width: 550px;
 }
 
-.proceso-numero {
+.numero {
   display: block;
   font-size: 15px;
   letter-spacing: 3px;
@@ -280,7 +278,7 @@
   margin-bottom: 5px;
 }
 
-.proceso-titulo {
+.titulo {
   font-size: 32px;
   color: #ffffff;
   font-weight: 400;
@@ -288,7 +286,7 @@
   margin: 0 0 15px 0;
 }
 
-.proceso-texto {
+.texto {
   font-size: 16px;
   line-height: 1.6;
   color: #68caff; 
@@ -296,7 +294,7 @@
 }
 
 
-.proceso-icono {
+.icono {
   position: absolute;
   right: 0;
   top: 10px;
@@ -313,7 +311,7 @@
 }
 
 
-.proceso-seccion::before {
+.seccion::before {
   content: '';
   position: absolute;
   right: 25px; 
