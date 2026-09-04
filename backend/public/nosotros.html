@@ -9,132 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </head>
-<style>
- h1 {
-    text-align: center;
-    color: white;
-    padding-top: 50px;
-    margin-bottom: 50px;
-    font-size: 55px;
- }
 
- .divisor {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      height: 3px;
-      background-color: #4e7fdb;
-      border: none;
-      margin: 40px auto;
-      width: 500px;
-    }
-
-
-body {
-  background-color: #b4f0ff;
-  color: white;
-  font-family: 'Georgia', serif;
-  margin: 0;
-  padding: 40px 20px;
-}
-
-.decoracion-superior {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-.decoracion-superior::before,
-.decoracion-superior::after {
-  content: "";
-  flex: 1;
-  max-width: 100px;
-  height: 1px;
-  background-color: #4e7fdb;
-}
-.rombo {
-  color: #4e7fdb;
-  margin: 0 10px;
-  font-size: 12px;
-}
-
-
-.grid-tarjetas {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-
-.tarjeta-gema {
-  background-color: #62c0ff; 
-  border-radius: 4px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.imagen-contenedor {
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  background-color: #1a1a1a; 
-  position: relative;
-}
-
-
-.contenido {
-  padding: 20px;
-}
-
-
-.origen {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  font-family: sans-serif;
-}
-
-
-.origen::before {
-  content: "•";
-  margin-right: 6px;
-  font-size: 14px;
-}
-.tag-azul::before { color: #5271ff; }
-.tag-rojo::before { color: #ff4a4a; }
-.tag-morado::before { color: #bf55ec; }
-.tag-verde::before { color: #2ecc71; }
-
-
-.tarjeta-gema h3 {
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0 0 15px 0;
-}
-
-
-.tarjeta-gema p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #9c9284;
-  margin: 0;
-}
-</style>
 <body class="background">
-    <h1 style="text-align: center; font-family: serif;">Quienes somos </h1>
+    <h1 class="titulo-nosotros" >Quienes somos </h1>
     <p style="text-align: center; color: #f2fdff; font-family: sans-serif; font-size: 18px; line-height: 1.6;">Tres decadas creando joyas que transiendan generaciones. <br> Artesania sin concesiones, materiales honestos y un compromiso <br>inquebrantable con la belleza que permanece</p>
     <div class="divisor"></div>
     <br>
-    <h1> Lo que encontraras</h1>
+    <h1 class="titulo-nosotros"> Lo que encontraras</h1>
     <p style="text-align: center; color: #f2fdff; font-family: sans-serif; font-size: 18px; line-height: 1.6;">En Spendor trabajamos con gemas naturales certificadas</p>
 
     <section class="gemas-section">
@@ -149,7 +30,7 @@ body {
       </div>
       <div class="contenido">
         <span class="origen tag-azul">Sudáfrica · Botswana</span>
-        <h3>Diamante</h3>
+        <h3 style="color: rgb(46, 46, 248); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Diamante</h3>
         <p>La gema más dura de la naturaleza, símbolo de eternidad. Los seleccionamos certificados GIA según las 4C: corte, color, claridad y quilates.</p>
       </div>
     </article>
@@ -159,7 +40,7 @@ body {
       <div class="imagen-contenedor img-rubi"></div>
       <div class="contenido">
         <span class="origen tag-rojo">Birmania · Mozambique</span>
-        <h3>Rubí</h3>
+        <h3 style="color: rgb(46, 46, 248); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Rubí</h3>
         <p>El rojo más intenso que existe en la naturaleza. Símbolo de pasión y vitalidad. Cada rubí de Splendor es natural, sin tratamientos de relleno.</p>
       </div>
     </article>
@@ -168,7 +49,7 @@ body {
       <div class="imagen-contenedor img-zafiro"></div>
       <div class="contenido">
         <span class="origen tag-morado">Sri Lanka · Cachemira</span>
-        <h3>Zafiro</h3>
+        <h3 style="color: rgb(46, 46, 248); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Zafiro</h3>
         <p>Azul profundo que evoca el cielo nocturno. Los zafiros de Cachemira son los más codiciados del mundo; también trabajamos zafiros amarillos y rosados.</p>
       </div>
     </article>
@@ -177,12 +58,101 @@ body {
       <div class="imagen-contenedor img-esmeralda"></div>
       <div class="contenido">
         <span class="origen tag-verde">Colombia · Zambia</span>
-        <h3>Esmeralda</h3>
+        <h3 style="color: rgb(46, 46, 248);text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Esmeralda</h3>
         <p>El verde más vivo de la naturaleza. Las esmeraldas colombianas son las más valoradas; su intensidad de color es insuperable en el mundo gemológico.</p>
       </div>
     </article>
   </div>
 </section>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+    <h1 class="titulo-nosotros" >Como se hace una joya</h1>
+    <p style="text-align: center; color: #f2fdff; font-family: sans-serif; font-size: 18px; line-height: 1.6;">Desde la primera línea en papel hasta el momento en que la <br> recibes en tus manos, cada joya recorre cinco etapas de <br> creación artesanal.</p>
+     <div class="decoracion-superior">
+      <span class="rombo">♦</span>
+     </div>
+
+
+
+     <section class="proceso-seccion">
+  
+  <div class="proceso-item">
+    <div class="proceso-contenido">
+      <span class="proceso-numero">01</span>
+      <h2 class="proceso-titulo">Diseño a mano</h2>
+      <p class="proceso-texto">
+        Todo comienza con un boceto sobre papel. Nuestros diseñadores trazan cada curva y propuesta antes de tocar el metal.
+      </p>
+    </div>
+    <div class="proceso-icono">
+      <span class="icono-lapiz">✏️</span>
+    </div>
+  </div>
+
+  <div class="proceso-item">
+    <div class="proceso-contenido">
+      <span class="proceso-numero">02</span>
+      <h2 class="proceso-titulo">Selección de materiales</h2>
+      <p class="proceso-texto">
+        Elegimos el oro y las piedras preciosas una a una bajo lupa certificada, asegurándonos de que cada gema sea impecable.
+      </p>
+    </div>
+    <div class="proceso-icono">
+      <span class="icono-diamante">💎</span>
+    </div>
+  </div>
+
+
+  <div class="proceso-item">
+    <div class="proceso-contenido">
+      <span class="proceso-numero">03</span>
+      <h2 class="proceso-titulo">Trabajo en el taller</h2>
+      <p class="proceso-texto">
+        El metal se funde, lamina y da forma a mano. Soldadura, engastado y pulido son ejecutados por nuestros maestros orfebres.
+      </p>
+    </div>
+    <div class="proceso-icono">
+      <span class="icono-fuego">🔥</span>
+    </div>
+  </div>
+
+
+  <div class="proceso-item">
+    <div class="proceso-contenido">
+      <span class="proceso-numero">04</span>
+      <h2 class="proceso-titulo">Control de calidad</h2>
+      <p class="proceso-texto">
+        Cada joya pasa por una revisión de 12 puntos antes de salir del taller: peso, acabado, cierre, brillo y resistencia.
+      </p>
+    </div>
+    <div class="proceso-icono">
+      <span class="icono-check">✔️</span>
+    </div>
+  </div>
+
+
+
+  <div class="proceso-item">
+    <div class="proceso-contenido">
+      <span class="proceso-numero">05</span>
+      <h2 class="proceso-titulo">Empaque y entrega</h2>
+      <p class="proceso-texto">
+        La pieza viaja en estuche artesanal con certificado de autenticidad y garantía vitalicia de mantenimiento gratuito.
+      </p>
+    </div>
+    <div class="proceso-icono">
+      <span class="icono-destello">✨ </span>
+    </div>
+  </div>
+</section>
+
+
 
 <br>
 <br>
@@ -192,17 +162,17 @@ body {
 <div class="decoracion-superior">
     <span class="rombo">♦</span>
   </div>
-<h1 style="text-align: center; font-family: serif 'Times New Roman', Times, serif; font-size: 50px;">¿Lista para encontrar tu joya?</h1>
-<p style="text-align: center; color: #f2fdff; font-family: sans-serif; font-size: 18px; line-height: 1.6;"> Explora nuestra coleccion y encuentra tu pieza favorita. inicia sesion para realizar tu compra</p>
+<h1 class="titulo-nosotros">¿Lista para encontrar tu joya?</h1>
+<p style="text-align: center; color: #f2f5ff; font-family: sans-serif; font-size: 18px; line-height: 1.6;"> Explora nuestra coleccion y encuentra tu pieza favorita. inicia sesion para realizar tu compra</p>
 
-<div class="btn" style="text-align: center; display: flex; justify-content: center; gap: 15px; font-family: serif 'Times New Roman', Times, serif;">
-        <button type="button" class="btn btn-info">
-        <a href="productos.html" style="text-decoration: none; color: inherit;">Comprar ahora</a> </button>
-        <button type="button" class="btn btn-info">
-        <a href="registroUsuario.html" style="text-decoration: none; color: inherit;">Iniciar sesión</a> </button>
+<div style="display: flex; justify-content: center; gap: 15px; font-family: serif, 'Times New Roman', Times, serif;">
+    <button type="button" class="btn" style="background: linear-gradient(rgb(59, 67, 116), rgb(17, 17, 95)); border: none; width: 120px; padding: 8px 0;">
+        <a href="productos.html" style="text-decoration: none; color: white;">Comprar ahora</a>
+    </button>
+    <button type="button" class="btn" style="background: linear-gradient(rgb(59, 67, 116), rgb(17, 17, 95)); border: none; width: 120px; padding: 8px 0;">
+        <a href="registroUsuario.html" style="text-decoration: none; color: white;">Iniciar sesión</a>
+    </button>
 </div>
-
-
 
     
 </body>
