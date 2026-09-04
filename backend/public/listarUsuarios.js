@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>${user.correo}</td>
                         <td><span class="badge ${claseBadge}">${textoRol}</span></td>
                         <td>
-                            <!-- Botón Editar que lleva el ID del usuario en la URL -->
                             <a href="editarUsuario.html?id=${user.id_usuario}" class="btn btn-warning btn-sm fw-bold">
                                 Editar
                             </a>

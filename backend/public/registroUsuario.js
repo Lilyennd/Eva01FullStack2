@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const runInput = document.getElementById('run');
   const errorRun = document.getElementById('error-run');
 
-
   function determinarRol(correo) {
     correo = correo.trim().toLowerCase();
     if (correo.endsWith('@profesor.duoc.cl')) return 1; 
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function cargarRegiones() {
     try {
-      const res = await fetch('http://localhost:3000/api/regiones');
+      const res = await fetch('/api/regiones');
       const regiones = await res.json();
 
       listaRegion.innerHTML = '';
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function cargarComunas(regionId) {
     try {
-      const res = await fetch(`http://localhost:3000/api/comunas?regionId=${regionId}`);
+      const res = await fetch(`/api/comunas?regionId=${regionId}`);
       const comunas = await res.json();
 
       listaComuna.innerHTML = '';
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   correoInput.addEventListener('blur', () => {
     const rol = determinarRol(correoInput.value);
     if (rol === null) {
-      errorCorreo.textContent = 'Solo se permiten correos @gmail.com , @duocuc.cl  o @profesor.duoc.cl .';
+      errorCorreo.textContent = 'Solo se permiten correos @gmail.com, @duocuc.cl o @profesor.duoc.cl.';
       errorCorreo.classList.add('text-danger');
     } else {
       errorCorreo.textContent = '';
@@ -138,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const respuesta = await fetch('http://localhost:3000/api/usuarios', {
+      const respuesta = await fetch('/api/usuarios', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(usuario)
@@ -148,10 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (respuesta.ok) {
         alert('¡Usuario registrado con éxito!');
-        form.reset();
-        btnRegion.textContent = 'Seleccionar Región';
-        btnComuna.textContent = 'Selecciona una región primero';
-        btnComuna.disabled = true;
+        
+        // REVISIÓN INTELIGENTE: 
+        // Si estamos en la página del admin, volvemos a la lista. Si es registro público, vamos al login.
+        if (window.location.pathname.includes('crearUsuario.html')) {
+          window.location.href = 'listarUsuarios.html';
+        } else {
+          window.location.href = 'login.html';
+        }
+
       } else {
         alert(data.error || 'Error al registrar');
       }
