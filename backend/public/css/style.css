@@ -152,12 +152,6 @@
     }
 
 
-body {
-  background-color: #b4f0ff;
-  color: white;
-  margin: 0;
-  padding: 40px 20px;
-}
 
 .decoracion-superior {
   display: flex;

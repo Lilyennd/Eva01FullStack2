@@ -4,7 +4,7 @@ import pool from '@/lib/db';
 // GET /api/productos/123 -> obtener un producto por id
 export async function GET(request, { params }) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const [rows] = await pool.query(
       'SELECT * FROM productos WHERE id_producto = ?',
       [id]
@@ -29,7 +29,7 @@ export async function GET(request, { params }) {
 
 export async function PUT(request, { params }) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const body = await request.json();
     const {
       nombre, descripcion, precio, stock, stock_critico,
@@ -75,7 +75,7 @@ export async function PUT(request, { params }) {
 }
 export async function DELETE(request, { params }) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     const [result] = await pool.query(
       'UPDATE productos SET activo = FALSE WHERE id_producto = ?',

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function determinarRol(correo) {
     correo = correo.trim().toLowerCase();
     if (correo.endsWith('@profesor.duoc.cl')) return 1; 
-    if (correo.endsWith('@duocuc.cl')) return 2;         
+    if (correo.endsWith('@duocuc.cl')) return 1;         
     if (correo.endsWith('@gmail.com')) return 3;        
     return null;
   }

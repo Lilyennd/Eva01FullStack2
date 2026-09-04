@@ -10,6 +10,33 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-main">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="home.html">Splendor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto" id="menuAdmin" style="display: none;">
+        <li class="nav-item"><a class="nav-link" href="homeAdministrador.html">Panel</a></li>
+        <li class="nav-item"><a class="nav-link" href="inventario.html">Inventario</a></li>
+        <li class="nav-item"><a class="nav-link" href="nuevoProducto.html">Nuevo producto</a></li>
+        <li class="nav-item"><a class="nav-link" href="listarUsuarios.html">Usuarios</a></li>
+      </ul>
+      <ul class="navbar-nav me-auto" id="menuComprador" style="display: none;">
+        <li class="nav-item"><a class="nav-link" href="home.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="btn btn-outline-danger" id="btnCerrarSesion" style="display: none;">
+        Cerrar sesión
+      </button>
+
+    </div>
+  </div>
+</nav>
 
 <section class="hero-simple">
     <div class="hero-simple-overlay"></div>
@@ -44,7 +71,7 @@
 
     <section class="faq-container my-5 container">
         <div class="text-center mb-4">
-            <p class="herotitulo" style="color: rgb(25, 25, 43);">Preguntas Frecuentes</p>
+            <p class="herotitulo" style="color: rgb(40, 42, 108);">Preguntas Frecuentes</p>
             <h2 class="fst-italic fw-normal text-white">Lo que solemos resolver antes de adquirir una gema preciosa.</h2>
         </div>
 
@@ -151,5 +178,6 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="navbar.js"></script>
 </body>
 </html>

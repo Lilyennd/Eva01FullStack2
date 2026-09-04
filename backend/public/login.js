@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
      
       if (data.usuario.id_rol === 1 || data.usuario.id_rol === 2) {
-        window.location.href = 'homeAdministrador.html'; 
+        window.location.href = 'home.html'; 
       } else {
         window.location.href = 'home.html'; 
       }
