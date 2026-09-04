@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Producto | Splendor</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="background">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="home.html">Splendor</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto" id="menuAdmin" style="display: none;">
+        <li class="nav-item"><a class="nav-link" href="homeAdministrador.html">Panel</a></li>
+        <li class="nav-item"><a class="nav-link" href="inventario.html">Inventario</a></li>
+        <li class="nav-item"><a class="nav-link" href="nuevoProducto.html">Nuevo producto</a></li>
+        <li class="nav-item"><a class="nav-link" href="listarUsuarios.html">Usuarios</a></li>
+      </ul>
+      <ul class="navbar-nav me-auto" id="menuComprador" style="display: none;">
+        <li class="nav-item"><a class="nav-link" href="home.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+      <button class="btn btn-outline-danger" id="btnCerrarSesion" style="display: none;">
+        Cerrar sesión
+      </button>
+
+    </div>
+  </div>
+</nav>
+
+    <div class="container">
+      <div class="row justify-content-center py-5">
+        <div class="col-md-9 col-lg-7">
+          <div class="card shadow border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="card-title text-center mb-4 fw-bold">Nuevo Producto</h3>
+
+              <div id="mensajeProducto"></div>
+
+              <form id="formProducto" novalidate>
+
+                <div class="mb-3">
+                  <label for="codigo_producto" class="form-label">Código de producto</label>
+                  <input type="text" class="form-control" id="codigo_producto" placeholder="Ej: DIA-001" required>
+                  <div class="invalid-feedback" id="error-codigo_producto"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" placeholder="Nombre del producto" maxlength="100" required>
+                  <div class="invalid-feedback" id="error-nombre"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="descripcion" class="form-label">Descripción (opcional)</label>
+                  <textarea class="form-control" id="descripcion" rows="3" maxlength="500" placeholder="Describe el producto..."></textarea>
+                  <div class="form-text"><span id="contadorDescripcion">0</span>/500 caracteres</div>
+                  <div class="invalid-feedback" id="error-descripcion"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <div class="input-group">
+                      <span class="input-group-text">$</span>
+                      <input type="number" class="form-control" id="precio" min="0" step="0.01" placeholder="0" required>
+                    </div>
+                    <div class="invalid-feedback d-block" id="error-precio"></div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="id_categoria" class="form-label">Categoría</label>
+                    <select class="form-select" id="id_categoria" required>
+                      <option value="" selected disabled>Seleccione una categoría</option>
+                    </select>
+                    <div class="invalid-feedback" id="error-id_categoria"></div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="stock" class="form-label">Stock</label>
+                    <input type="number" class="form-control" id="stock" min="0" step="1" placeholder="0" required>
+                    <div class="invalid-feedback d-block" id="error-stock"></div>
+                  </div>
+
+                  <div class="col-md-6 mb-3">
+                    <label for="stock_critico" class="form-label">Stock crítico (opcional)</label>
+                    <input type="number" class="form-control" id="stock_critico" min="0" step="1" placeholder="Ej: 5">
+                    <div class="form-text">Se mostrará una alerta cuando el stock sea igual o menor a este valor.</div>
+                    <div class="invalid-feedback d-block" id="error-stock_critico"></div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="origen" class="form-label">Origen (opcional)</label>
+                    <input type="text" class="form-control" id="origen" placeholder="Ej: Colombia">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="imagen_principal" class="form-label">Imagen (opcional)</label>
+                    <select class="form-select" id="imagen_principal">
+                      <option value="" selected>Sin imagen</option>
+                      <option value="diamante1.jpg">diamante1.jpg</option>
+                      <option value="diamanterosa1.jpg">diamanterosa1.jpg</option>
+                      <option value="esmeralda1.jpg">esmeralda1.jpg</option>
+                      <option value="ruby1.jpg">ruby1.jpg</option>
+                      <option value="zafiro1.jpg">zafiro1.jpg</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3 mb-3">
+                    <label for="kilates" class="form-label">Kilates</label>
+                    <input type="text" class="form-control" id="kilates" placeholder="Opcional">
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="corte" class="form-label">Corte</label>
+                    <input type="text" class="form-control" id="corte" placeholder="Opcional">
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="claridad" class="form-label">Claridad</label>
+                    <input type="text" class="form-control" id="claridad" placeholder="Opcional">
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="color" class="form-label">Color</label>
+                    <input type="text" class="form-control" id="color" placeholder="Opcional">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="certificado" class="form-label">Certificado (opcional)</label>
+                    <input type="text" class="form-control" id="certificado" placeholder="Ej: GIA">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="peso_gramos" class="form-label">Peso en gramos (opcional)</label>
+                    <input type="number" class="form-control" id="peso_gramos" min="0" step="0.01" placeholder="0">
+                  </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-3">
+                  <button type="submit" class="btn btn-dark flex-fill py-2">Guardar producto</button>
+                  <a href="inventario.html" class="btn btn-outline-secondary flex-fill py-2 text-center">Cancelar</a>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="nuevoProducto.js"></script>
+</body>
+</html>

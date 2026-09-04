@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import pool from '@/lib/db';
 
-// GET /api/productos/123 -> obtener un producto por id
 export async function GET(request, { params }) {
   try {
     const { id } = await params;
