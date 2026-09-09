@@ -1,4 +1,3 @@
-
 console.log("¡El archivo JS está conectado!");
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formLogin');
@@ -7,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const errorCorreo = document.getElementById('error-correo');
   const errorPassword = document.getElementById('error-password');
 
-  // dominios permitidos en el sistema
   function correoValido(correo) {
     correo = correo.trim().toLowerCase();
     return correo.endsWith('@profesor.duoc.cl') ||
@@ -17,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log("1. El botón fue presionado y preventDefault se ejecutó");
     errorCorreo.textContent = '';
     errorPassword.textContent = '';
 
@@ -35,8 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-        console.log("2. Enviando datos a la API...");
-      const respuesta = await fetch('http://localhost:3000/api/login', {
+      const respuesta = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ correo, password })
@@ -45,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = await respuesta.json();
 
       if (!respuesta.ok) {
-        console.log("3. El backend respondió con error:", data.error);
         errorPassword.textContent = data.error || 'No se pudo iniciar sesión';
         return;
       }
