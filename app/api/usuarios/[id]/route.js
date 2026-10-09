@@ -1,11 +1,17 @@
 import { NextResponse } from 'next/server';
 import pool from '@/lib/db';
 
-
 export async function GET(request, { params }) {
   try {
     const { id } = await params;
-    const [rows] = await pool.query('SELECT * FROM usuarios WHERE id_usuario = ?', [id]);
+
+    const [rows] = await pool.query(
+      `SELECT id_usuario, run, nombre, apellidos, correo, telefono, direccion,
+              id_rol, id_region, id_comuna, activo, fecha_registro
+       FROM usuarios
+       WHERE id_usuario = ?`,
+      [id]
+    );
 
     if (rows.length === 0) {
       return NextResponse.json({ error: 'Usuario no encontrado' }, { status: 404 });
@@ -22,11 +28,13 @@ export async function PUT(request, { params }) {
   try {
     const { id } = await params;
     const body = await request.json();
-    const { run, nombre, apellidos, correo, id_rol } = body;
+    const { run, nombre, apellidos, correo, id_rol, telefono, direccion, id_region, id_comuna } = body;
 
     const [result] = await pool.query(
-      `UPDATE usuarios SET run = ?, nombre = ?, apellidos = ?, correo = ?, id_rol = ? WHERE id_usuario = ?`,
-      [run, nombre, apellidos, correo, id_rol, id]
+      `UPDATE usuarios SET run = ?, nombre = ?, apellidos = ?, correo = ?, id_rol = ?,
+         telefono = ?, direccion = ?, id_region = ?, id_comuna = ?
+       WHERE id_usuario = ?`,
+      [run, nombre, apellidos, correo, id_rol, telefono, direccion, id_region, id_comuna, id]
     );
 
     if (result.affectedRows === 0) {

@@ -33,12 +33,21 @@ export async function PUT(request, { params }) {
     const {
       nombre, descripcion, precio, stock, stock_critico,
       id_categoria, origen, kilates, corte, claridad, color, certificado,
-      peso_gramos, imagen_principal
+      peso_gramos, imagen_principal,
+      en_oferta, precio_oferta // NUEVOS
     } = body;
 
     if (precio !== undefined && precio < 0) {
       return NextResponse.json(
         { error: 'El precio no puede ser negativo' },
+        { status: 400 }
+      );
+    }
+
+
+    if (en_oferta && (!precio_oferta || (precio !== undefined && Number(precio_oferta) >= Number(precio)))) {
+      return NextResponse.json(
+        { error: 'El precio de oferta debe existir y ser menor al precio normal' },
         { status: 400 }
       );
     }
@@ -60,6 +69,13 @@ export async function PUT(request, { params }) {
       );
     }
 
+    if (en_oferta !== undefined) {
+      await pool.query(
+        'UPDATE productos SET en_oferta = ?, precio_oferta = ? WHERE id_producto = ?',
+        [en_oferta ? 1 : 0, en_oferta ? precio_oferta : null, id]
+      );
+    }
+
     return NextResponse.json(
       { message: 'Producto actualizado correctamente' },
       { status: 200 }
@@ -72,6 +88,7 @@ export async function PUT(request, { params }) {
     );
   }
 }
+
 export async function DELETE(request, { params }) {
   try {
     const { id } = await params;
