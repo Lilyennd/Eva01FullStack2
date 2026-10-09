@@ -41,7 +41,7 @@ export async function POST(request) {
       `SELECT u.id_usuario, u.nombre, u.apellidos, u.correo, u.id_rol, r.nombre_rol
        FROM usuarios u
        JOIN roles r ON u.id_rol = r.id_rol
-       WHERE u.correo = ? AND u.password = ?`,
+       WHERE u.correo = ? AND u.password = ? AND u.activo = 1`,
       [correo, password]
     );
 

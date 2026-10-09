@@ -5,7 +5,10 @@ export async function GET(request, { params }) {
   try {
     const { id } = await params;
     const [rows] = await pool.query(
-      'SELECT * FROM productos WHERE id_producto = ?',
+      `SELECT p.*, c.nombre_categoria
+       FROM productos p
+       JOIN categorias c ON c.id_categoria = p.id_categoria
+       WHERE p.id_producto = ? AND p.activo = TRUE`,
       [id]
     );
 
