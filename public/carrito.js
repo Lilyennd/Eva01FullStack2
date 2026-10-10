@@ -72,51 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Botón "Ir a pagar": descuenta stock de cada producto DISTINTO y vacía el carrito.
+    // Botón "Ir a pagar": lleva al checkout (checkout.html), donde se crea la orden
     const btnPagar = document.getElementById('btnPagar');
     if (btnPagar) {
-        btnPagar.addEventListener('click', async () => {
-
+        btnPagar.addEventListener('click', () => {
             if (carrito.length === 0) {
                 alert('Tu carrito está vacío.');
                 return;
             }
-
-            const cantidades = {};
-            carrito.forEach(function (producto) {
-                const id = producto.id_producto;
-                cantidades[id] = (cantidades[id] || 0) + 1;
-            });
-
-            let huboError = false;
-
-            try {
-                for (const id in cantidades) {
-                    const respuesta = await fetch('/api/productos/' + id + '/stock', {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ cantidad: cantidades[id] })
-                    });
-
-                    if (!respuesta.ok) {
-                        huboError = true;
-                    }
-                }
-
-                if (huboError) {
-                    alert('Hubo un problema con el stock de uno o más productos.');
-                    return;
-                }
-
-                alert('¡Compra realizada! Gracias por tu compra.');
-                carrito = [];
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                mostrarCarrito();
-
-            } catch (error) {
-                console.log('Error al pagar:', error);
-                alert('Hubo un problema al procesar el pago.');
-            }
+            window.location.href = 'checkout.html';
         });
     }
 
