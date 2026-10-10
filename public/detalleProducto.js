@@ -30,7 +30,18 @@ function rellenarPagina(producto) {
 
   document.getElementById('detNombre').textContent = producto.nombre;
   document.getElementById('detOrigen').textContent = producto.origen || '';
-  document.getElementById('detPrecio').textContent = '$' + Number(producto.precio).toLocaleString('es-CL');
+
+  var precioFinal = Number(producto.precio);
+  var enOferta = producto.en_oferta && producto.precio_oferta;
+  if (enOferta) {
+    precioFinal = Number(producto.precio_oferta);
+    document.getElementById('detPrecio').innerHTML =
+      '<span class="badge bg-danger fs-6 me-2">Oferta</span>' +
+      '<span class="text-muted fs-5 text-decoration-line-through me-2">$' + Number(producto.precio).toLocaleString('es-CL') + '</span>' +
+      '$' + precioFinal.toLocaleString('es-CL');
+  } else {
+    document.getElementById('detPrecio').textContent = '$' + precioFinal.toLocaleString('es-CL');
+  }
   document.getElementById('detDescripcion').textContent = producto.descripcion || '';
 
   document.getElementById('detKilates').textContent = producto.kilates || '-';
@@ -44,7 +55,7 @@ function rellenarPagina(producto) {
   if (btnAgregar) {
     if (producto.stock > 0) {
       btnAgregar.onclick = function () {
-        agregar(producto.nombre, producto.precio, producto.id_producto, producto.stock);
+        agregar(producto.nombre, precioFinal, producto.id_producto, producto.stock);
       };
     } else {
       btnAgregar.disabled = true;
