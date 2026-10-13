@@ -65,11 +65,11 @@ export async function POST(request) {
       return NextResponse.json({ error: 'El correo supera los 100 caracteres' }, { status: 400, headers: corsHeaders });
     }
 
-    const dominiosValidos = {
-      '@profesor.duoc.cl': 1,
-      '@duocuc.cl': 2,
-      '@gmail.com': 3
-    };
+const dominiosValidos = {
+  '@profesor.duoc.cl': 2,
+  '@duocuc.cl': 2,
+  '@gmail.com': 1
+};
     const dominioCorreo = Object.keys(dominiosValidos).find(d => correo.toLowerCase().endsWith(d));
     if (!dominioCorreo) {
       return NextResponse.json(
